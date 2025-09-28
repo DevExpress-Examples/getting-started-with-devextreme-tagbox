@@ -8,7 +8,7 @@
 
 This repository stores the code examples of the TagBox component for the [Getting Started with TagBox](https://js.devexpress.com/Documentation/Guide/UI_Components/TagBox/Getting_Started_with_TagBox/) tutorial. The TagBox is an editor that allows users to select multiple items from a drop-down list. This tutorial explains how to add a TagBox to a page, populate the drop-down list, allow users to search through it, and log the data of the selected item in the console.
 
-<div align="center"><img src="./tagbox.png" /></div>
+<div align="center"><img src="images/tagbox.png" /></div>
 
 ## Files to Review
 
