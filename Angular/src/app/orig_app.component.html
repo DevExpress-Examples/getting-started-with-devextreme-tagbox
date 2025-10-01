@@ -1,0 +1,15 @@
+<dx-tag-box
+    id="tagBox"
+    [dataSource]="dataSource"
+    valueExpr="ID"
+    displayExpr="Name"
+    [searchEnabled]="true"
+    [showSelectionControls]="true"
+    [grouped]="true"
+    [multiline]="true"
+    [maxDisplayedTags]="6"
+    label="Products"
+    labelMode="floating"
+    (onValueChanged)="onValueChanged($event)"
+    [dropDownOptions]="dropDownOptions">
+</dx-tag-box>
