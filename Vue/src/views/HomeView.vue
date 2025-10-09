@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import HomeContent from '../components/HomeContent.vue';
+import TagBoxContent from '../components/TagBoxContent.vue';
 </script>
 
 <template>
-  <HomeContent text="Count"/>
+  <TagBoxContent/>
 </template>
 

@@ -1,34 +1,12 @@
-$(() => {
-  const dataSource = new DevExpress.data.DataSource({
-    store: products,
-    key: 'ID',
-    group: 'Category',
-  });
+import { Injectable } from '@angular/core';
 
-  $('#tag-box').dxTagBox({
-    dataSource,
-    valueExpr: 'ID',
-    displayExpr: 'Name',
-    searchEnabled: true,
-    showSelectionControls: true,
-    grouped: true,
-    multiline: true,
-    maxDisplayedTags: 6,
-    label: 'Products',
-    labelMode: 'floating',
-    onValueChanged(e) {
-      // eslint-disable-next-line no-console
-      console.log(e.previousValue);
-      // eslint-disable-next-line no-console
-      console.log(e.value);
-    },
-    dropDownOptions: {
-      height: 300,
-    },
-  });
-});
+export interface Item {
+  ID: number;
+  Name: string;
+  Category: string;
+}
 
-const products = [
+const data: Item[] = [
   {
     ID: 1,
     Name: 'HD Video Player',
@@ -105,3 +83,12 @@ const products = [
     Category: 'Automation',
   },
 ];
+
+@Injectable({
+  providedIn: 'root',
+})
+export class AppService {
+  getItems(): Item[] {
+    return data;
+  }
+}

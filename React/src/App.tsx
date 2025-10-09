@@ -1,17 +1,48 @@
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import './App.css';
 import 'devextreme/dist/css/dx.material.blue.light.compact.css';
-import Button from 'devextreme-react/button';
+import TagBox from 'devextreme-react/tag-box';
+import type { ValueChangedEvent } from 'devextreme/ui/tag_box';
+import DataSource from 'devextreme/data/data_source';
+import { data } from './data';
+
+const dataSource = new DataSource({
+  store: {
+    data,
+    type: 'array',
+    key: 'ID',
+  },
+  group: 'Category',
+});
+
+const dropDownOptions = {
+  height: 300,
+};
 
 function App(): JSX.Element {
-  var [count, setCount] = useState<number>(0);
-  const clickHandler = useCallback(() => {
-    setCount((prev) => prev + 1);
-  }, [setCount]);
+  const onValueChanged = useCallback((e: ValueChangedEvent) => {
+    // eslint-disable-next-line no-console
+    console.log(e.previousValue);
+    // eslint-disable-next-line no-console
+    console.log(e.value);
+  }, []);
+
   return (
-    <div className="main">
-      <Button text={`Click count: ${count}`} onClick={clickHandler} />
-    </div>
+    <TagBox
+      id="tag-box"
+      dataSource={dataSource}
+      valueExpr="ID"
+      displayExpr="Name"
+      searchEnabled={true}
+      showSelectionControls={true}
+      grouped={true}
+      multiline={true}
+      maxDisplayedTags={6}
+      label="Products"
+      labelMode="floating"
+      onValueChanged={onValueChanged}
+      dropDownOptions={dropDownOptions}
+    />
   );
 }
 

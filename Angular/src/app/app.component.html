@@ -1,3 +1,16 @@
-<div class="default-style">
-  <dx-button [text]="buttonText" (onClick)="onClick($event)"></dx-button>
-</div>
+<dx-tag-box
+  id="tag-box"
+  [dataSource]="dataSource"
+  valueExpr="ID"
+  displayExpr="Name"
+  [searchEnabled]="true"
+  [showSelectionControls]="true"
+  [grouped]="true"
+  [multiline]="true"
+  [maxDisplayedTags]="6"
+  label="Products"
+  labelMode="floating"
+  (onValueChanged)="onValueChanged($event)"
+  [dropDownOptions]="dropDownOptions"
+>
+</dx-tag-box>

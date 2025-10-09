@@ -1,34 +1,10 @@
-$(() => {
-  const dataSource = new DevExpress.data.DataSource({
-    store: products,
-    key: 'ID',
-    group: 'Category',
-  });
+export interface Product {
+  ID: number;
+  Name: string;
+  Category: string;
+}
 
-  $('#tag-box').dxTagBox({
-    dataSource,
-    valueExpr: 'ID',
-    displayExpr: 'Name',
-    searchEnabled: true,
-    showSelectionControls: true,
-    grouped: true,
-    multiline: true,
-    maxDisplayedTags: 6,
-    label: 'Products',
-    labelMode: 'floating',
-    onValueChanged(e) {
-      // eslint-disable-next-line no-console
-      console.log(e.previousValue);
-      // eslint-disable-next-line no-console
-      console.log(e.value);
-    },
-    dropDownOptions: {
-      height: 300,
-    },
-  });
-});
-
-const products = [
+export const data: Product[] = [
   {
     ID: 1,
     Name: 'HD Video Player',

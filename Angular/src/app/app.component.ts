@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { ClickEvent } from 'devextreme/ui/button';
+import DataSource from 'devextreme/data/data_source';
+import type { ValueChangedEvent } from 'devextreme/ui/tag_box';
+import { AppService, type Item } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +9,32 @@ import { ClickEvent } from 'devextreme/ui/button';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'Angular';
+  dataSource: DataSource;
 
-  counter = 0;
+  data: Item[];
 
-  buttonText = 'Click count: 0';
+  dropDownOptions: { height: number };
 
-  onClick(e: ClickEvent): void {
-    this.counter++;
-    this.buttonText = `Click count: ${this.counter}`;
+  constructor(service: AppService) {
+    this.data = service.getItems();
+    this.dataSource = new DataSource({
+      store: {
+        data: this.data,
+        type: 'array',
+        key: 'ID',
+      },
+      group: 'Category',
+    });
+
+    this.dropDownOptions = {
+      height: 300,
+    };
+  }
+
+  onValueChanged(e: ValueChangedEvent): void {
+    // eslint-disable-next-line no-console
+    console.log(e.previousValue);
+    // eslint-disable-next-line no-console
+    console.log(e.value);
   }
 }
