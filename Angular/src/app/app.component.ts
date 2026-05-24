@@ -3,11 +3,13 @@ import DataSource from 'devextreme/data/data_source';
 import type { ValueChangedEvent } from 'devextreme/ui/tag_box';
 import { AppService, type Item } from './app.service';
 
+import { DxTagBoxModule } from 'devextreme-angular/ui/tag-box';
+
 @Component({
     selector: 'app-root',
+    imports: [DxTagBoxModule],
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    standalone: false
 })
 export class AppComponent {
   dataSource: DataSource;
