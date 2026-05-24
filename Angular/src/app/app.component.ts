@@ -4,9 +4,10 @@ import type { ValueChangedEvent } from 'devextreme/ui/tag_box';
 import { AppService, type Item } from './app.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    standalone: false
 })
 export class AppComponent {
   dataSource: DataSource;
