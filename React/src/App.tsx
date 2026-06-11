@@ -21,9 +21,7 @@ const dropDownOptions = {
 
 function App(): JSX.Element {
   const onValueChanged = useCallback((e: ValueChangedEvent) => {
-    // eslint-disable-next-line no-console
     console.log(e.previousValue);
-    // eslint-disable-next-line no-console
     console.log(e.value);
   }, []);
 

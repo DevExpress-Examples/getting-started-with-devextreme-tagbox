@@ -17,9 +17,7 @@ $(() => {
     label: 'Products',
     labelMode: 'floating',
     onValueChanged(e) {
-      // eslint-disable-next-line no-console
       console.log(e.previousValue);
-      // eslint-disable-next-line no-console
       console.log(e.value);
     },
     dropDownOptions: {
