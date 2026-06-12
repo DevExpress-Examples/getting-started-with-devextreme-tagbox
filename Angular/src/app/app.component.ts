@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import DataSource from 'devextreme/data/data_source';
 import type { ValueChangedEvent } from 'devextreme/ui/tag_box';
 import { AppService, type Item } from './app.service';
@@ -9,6 +9,7 @@ import { DxTagBoxModule } from 'devextreme-angular/ui/tag-box';
     selector: 'app-root',
     imports: [DxTagBoxModule],
     templateUrl: './app.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
